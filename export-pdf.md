@@ -34,5 +34,17 @@ await fs.mkdir(outDir, { recursive: true });
 await Promise.all(urls.map(exportPdf));
 await browser.close();
 
+2. 在app\global.css中添加CSS。（这个具体没验证）
 
-安装bun。npm install bun
+@media print {
+  #nd-docs-layout {
+    --fd-sidebar-width: 0px !important;
+  }
+  #nd-sidebar {
+    display: none;
+  }
+}
+
+3. 安装bun。npm install bun
+
+4. bun ./scripts/export-pdf.ts ，在pdfs目录输出生成的PDF。
